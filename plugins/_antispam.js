@@ -29,7 +29,7 @@ export async function before(m, { isAdmin, isBotAdmin }) {
     if (m.isGroup) {
         if (userActivity.count > 5) { // Adjust the spam threshold as needed
             if (isBotAdmin) {
-                await this.sendMessage(m.chat, { text: `\n*${user}, YOU ARE SPAMMING AND WILL BE REMOVED FROM THE GROUP!*`, mentions: [m.sender] });
+                await this.sendMessage(m.chat, { text: `*Ops!*, \n*${user}, SPAM DETECT!*`, mentions: [m.sender] });
                 await this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }});
                 let response = await this.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
                 if (response[0].status === "404") return;
@@ -40,7 +40,7 @@ export async function before(m, { isAdmin, isBotAdmin }) {
         }
     } else { // Handle private chats
         if (userActivity.count > 3) { // Adjust the spam threshold as needed
-            await this.sendMessage(m.chat, { text: `\n*${user}, YOU ARE SPAMMING AND HAVE BEEN BLOCKED!*`, mentions: [m.sender] });
+            await this.sendMessage(m.chat, { text: `*Ops!*,\n*${user}, YOU ARE SPAMMING AND HAVE BEEN BLOCKED!*`, mentions: [m.sender] });
 
             // Block the user
             await this.updateBlockStatus(m.sender, 'block');
