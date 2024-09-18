@@ -10,4 +10,5 @@
 #### Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Khalid-official/Antispam-bot/tree/main)
 
+[![Run on Replit](https://replit.com/badge/github/your-repo-owner/your-repo-name)](https://replit.com/@FBIking/Antispam-bot)
 
